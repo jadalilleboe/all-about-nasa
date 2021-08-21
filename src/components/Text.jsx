@@ -15,6 +15,9 @@ const styles = StyleSheet.create({
   colorPrimary: {
     color: theme.colors.primary,
   },
+  colorOnDarkBackground: {
+    color: theme.colors.onDarkBackground
+  },
   backgroundColorPrimary: {
     backgroundColor: theme.colors.primary
   },
@@ -27,6 +30,9 @@ const styles = StyleSheet.create({
   fontWeightBold: {
     fontWeight: theme.fontWeights.bold,
   },
+  paddingAround: {
+    padding: 10
+  }
 });
 
 const Text = ({ color, fontSize, fontWeight, style, padding, backgroundColor, ...props }) => {
@@ -34,11 +40,13 @@ const Text = ({ color, fontSize, fontWeight, style, padding, backgroundColor, ..
     styles.text,
     color === 'textSecondary' && styles.colorTextSecondary,
     color === 'primary' && styles.colorPrimary,
+    color === 'onDarkBackground' && styles.colorOnDarkBackground,
     fontSize === 'subheading' && styles.fontSizeSubheading,
     fontSize === 'heading' && styles.fontSizeHeading,
     fontWeight === 'bold' && styles.fontWeightBold,
     style,
-    backgroundColor === 'primary' && styles.backgroundColorPrimary
+    backgroundColor === 'primary' && styles.backgroundColorPrimary,
+    padding === 'paddingAround' && styles.paddingAround
   ];
 
   return <NativeText style={textStyle} {...props} />;
