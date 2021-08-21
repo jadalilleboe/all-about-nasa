@@ -23,6 +23,9 @@ const AppBar = () => {
       <Link to='/recentcrimes'>
         <Text fontSize='heading' color='onDarkBackground' padding='paddingAround'>Recent Crimes</Text>
       </Link>
+      <Link to='/map'>
+        <Text fontSize='heading' color='onDarkBackground' padding='paddingAround'>Map</Text>
+      </Link>
       </ScrollView>
   </View>);
 };
