@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { ScrollView, Image, Dimensions, SafeAreaView, View } from 'react-native';
 import Text from './Text';
+import nasaService from '../services/nasa';
 
 const DailyPicture = () => {
   const [ apod, setApod ] = useState([]);
   const fetchApod = async () => {
-    const response = await fetch('https://stark-cove-38179.herokuapp.com/api/nasa/apod');
+    const response = await nasaService.getAPOD()
     const json = await response.json();
     setApod(json);
   };
