@@ -1,13 +1,13 @@
 const theme = {
   colors: {
-    primary: '#7851a9',
+    primary: '#0d0d0d',
     textPrimary: 'black',
     textSecondary: '#565656',
     onDarkBackground: 'white'
   },
   fontSizes: {
-    body: 14,
-    subheading: 16,
+    body: 18,
+    subheading: 20,
     heading: 22
   },
   fontWeights: {

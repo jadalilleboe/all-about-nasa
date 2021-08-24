@@ -1,19 +1,19 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import { Route, Switch } from 'react-router-native';
-import FBIMostWanted from './FBIMostWanted'
+import DailyPicture from './DailyPicture'
 import AppBar from './AppBar'
 
 const Main = () => {
     return (
-      <View>
+      <ScrollView>
         <AppBar />
         <Switch>
           <Route exact path='/'>
-            <FBIMostWanted />
+            <DailyPicture />
           </Route>
         </Switch>
-      </View>
+      </ScrollView>
     );
 }
 

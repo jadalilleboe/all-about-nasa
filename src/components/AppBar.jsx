@@ -18,10 +18,10 @@ const AppBar = () => {
   <View style={styles.container}>
     <ScrollView horizontal>
       <Link to='/'>
-        <Text fontSize='heading' color='onDarkBackground' padding='paddingAround'>FBI Most Wanted</Text>
+        <Text fontSize='heading' color='onDarkBackground' padding='paddingAround'>APOD</Text>
       </Link>
       <Link to='/recentcrimes'>
-        <Text fontSize='heading' color='onDarkBackground' padding='paddingAround'>Recent Crimes</Text>
+        <Text fontSize='heading' color='onDarkBackground' padding='paddingAround'>Mars Rover</Text>
       </Link>
       <Link to='/map'>
         <Text fontSize='heading' color='onDarkBackground' padding='paddingAround'>Map</Text>

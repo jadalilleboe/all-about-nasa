@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "crime-app",
-    "slug": "crime-app",
+    "name": "nasa-app",
+    "slug": "nasa-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

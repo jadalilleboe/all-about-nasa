@@ -32,10 +32,13 @@ const styles = StyleSheet.create({
   },
   paddingAround: {
     padding: 10
+  },
+  centered: {
+    textAlign: 'center'
   }
 });
 
-const Text = ({ color, fontSize, fontWeight, style, padding, backgroundColor, ...props }) => {
+const Text = ({ color, fontSize, fontWeight, style, padding, align, backgroundColor, ...props }) => {
   const textStyle = [
     styles.text,
     color === 'textSecondary' && styles.colorTextSecondary,
@@ -46,7 +49,8 @@ const Text = ({ color, fontSize, fontWeight, style, padding, backgroundColor, ..
     fontWeight === 'bold' && styles.fontWeightBold,
     style,
     backgroundColor === 'primary' && styles.backgroundColorPrimary,
-    padding === 'paddingAround' && styles.paddingAround
+    padding === 'paddingAround' && styles.paddingAround,
+    align === 'center' && styles.centered
   ];
 
   return <NativeText style={textStyle} {...props} />;
