@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, Image, Dimensions, SafeAreaView, } from 'react-native';
+import { ScrollView, Image, Dimensions, SafeAreaView, View } from 'react-native';
 import Text from './Text';
 
 const DailyPicture = () => {
@@ -17,9 +17,13 @@ const DailyPicture = () => {
       <ScrollView >
         <Text fontSize='heading' align='center' padding='paddingAround'>Welcome to All About NASA!</Text>
         <Text align='center' padding='paddingAround'>{apod.date} Astronomy Picture of The Day</Text>
-        <Text align='center'>{apod.title}</Text>
-        <Image style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height}} source={{uri: apod.hdurl}}/>
-        <Text padding='paddingAround'>{apod.explanation}</Text>
+        <Text align='center' padding='paddingAround'>{apod.title}</Text>
+        <View style={{margin: 10}}>
+        <Image style={{width: (Dimensions.get('window').width - 20), height: (Dimensions.get('window').height - 20)}} source={{uri: apod.hdurl}}/>
+        </View>
+        <View style={{borderWidth: 1, borderStyle: 'solid', margin: 10}}>
+        <Text style={{padding: 20}}>{apod.explanation}</Text>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
