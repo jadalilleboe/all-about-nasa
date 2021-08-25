@@ -11,6 +11,8 @@ import DrawerItems from './src/constants/DrawerItems';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 const Drawer = createDrawerNavigator();
 
 const styles = StyleSheet.create({
@@ -53,8 +55,14 @@ const App = () => {
                 size={24} 
                 color={focused ? "#e91e63" : "black"} 
               /> 
-            :
-              <FontAwesome5 
+            : 
+            drawer.iconType==='AntDesign' ?
+            <AntDesign
+              name={drawer.iconName}
+              size={24}
+              color={focused ? "#e91e63" : "black"}
+            /> :
+              <Ionicons 
                 name={drawer.iconName}
                 size={24} 
                 color={focused ? "#e91e63" : "black"} 

@@ -1,22 +1,22 @@
 export default [
   {
       name:'APOD',
-      iconType:'Material',
-      iconName:'face-profile'
+      iconType:'Feather',
+      iconName:'calendar'
   },
   {
       name:'Objects Near Earth',
-      iconType:'Feather',
-      iconName:'settings'
+      iconType:'AntDesign',
+      iconName:'star'
   },
   {
       name:'Photos From Mars',
-      iconType:'Material',
-      iconName:'bookmark-check-outline'
+      iconType:'Ionicons',
+      iconName:'planet'
   },
   {
       name:'Photos From Earth',
-      iconType:'FontAwesome5',
-      iconName:'user-friends'
+      iconType:'Ionicons',
+      iconName:'earth'
   }
 ]
