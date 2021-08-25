@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ScrollView, Image, Dimensions, SafeAreaView, View } from 'react-native';
-import Text from './Text';
+import Text from '../components/Text';
 import nasaService from '../services/nasa';
 
 const DailyPicture = () => {
