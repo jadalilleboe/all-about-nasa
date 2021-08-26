@@ -18,9 +18,9 @@ const DailyPicture = () => {
       <ScrollView >
         <Text fontSize='heading' align='center' padding='paddingAround'>Welcome to All About NASA!</Text>
         <Text align='center' padding='paddingAround'>{apod.date} Astronomy Picture of The Day</Text>
-        <Text align='center' padding='paddingAround'>{apod.title}</Text>
+        <Text align='center' padding='paddingAround' fontWeight='bold'>{apod.title}</Text>
         <View style={{margin: 10}}>
-        <Image style={{width: (Dimensions.get('window').width - 20), height: (Dimensions.get('window').height - 20)}} source={{uri: apod.hdurl}}/>
+        <Image style={{width: (Dimensions.get('window').width - 20), height: 300}} source={{uri: apod.hdurl}}/>
         </View>
         <View style={{borderWidth: 1, borderStyle: 'solid', margin: 10}}>
         <Text style={{padding: 20}}>{apod.explanation}</Text>
