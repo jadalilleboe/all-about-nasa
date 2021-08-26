@@ -3,12 +3,14 @@ const theme = {
     primary: '#0d0d0d',
     textPrimary: 'black',
     textSecondary: '#565656',
-    onDarkBackground: 'white'
+    onDarkBackground: 'white',
+    important: '#e91e63'
   },
   fontSizes: {
     body: 18,
     subheading: 20,
-    heading: 22
+    heading: 22,
+    big: 30
   },
   fontWeights: {
     normal: '400',

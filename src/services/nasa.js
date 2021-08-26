@@ -6,9 +6,7 @@ const getAPOD = async () => {
 }
 
 const getONES = async () => {
-  console.log('hi')
   const response = await fetch(`${baseUrl}/neows`)
-  console.log(response)
   return response
 }
 
