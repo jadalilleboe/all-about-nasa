@@ -18,5 +18,10 @@ export default [
       name:'Photos From Earth',
       iconType:'Ionicons',
       iconName:'earth'
+  },
+  {
+    name:'DONKI',
+    iconType:'AntDesign',
+    iconName:'exclamationcircleo'
   }
 ]

@@ -6,6 +6,7 @@ import APOD from './src/screens/APOD';
 import EarthPhotos from './src/screens/EarthPhotos';
 import MarsPhotos from './src/screens/MarsPhotos';
 import ONE from './src/screens/ONE';
+import DONKI from './src/screens/DONKI';
 import theme from './src/theme';
 import DrawerItems from './src/constants/DrawerItems';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -72,7 +73,8 @@ const App = () => {
               drawer.name==='APOD'? APOD 
                 : drawer.name==='Objects Near Earth' ? ONE
                   : drawer.name==='Photos From Mars' ? MarsPhotos
-                    : drawer.name==='Photos From Earth' ? EarthPhotos : null
+                    : drawer.name==='Photos From Earth' ? EarthPhotos 
+                      : drawer.name==='DONKI' ? DONKI : null
             }
           />)
         }
