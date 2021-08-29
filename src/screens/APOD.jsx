@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { ScrollView, Image, Dimensions, SafeAreaView, View } from 'react-native';
 import Text from '../components/Text';
 import nasaService from '../services/nasa';
+import Loading from '../components/Loading';
 
 const DailyPicture = () => {
-  const [ apod, setApod ] = useState([]);
+  const [ apod, setApod ] = useState(null);
   const fetchApod = async () => {
     const response = await nasaService.getAPOD()
     const json = await response.json();
@@ -13,6 +14,9 @@ const DailyPicture = () => {
   useEffect(() => {
     fetchApod();
   }, []);
+  if (!apod) {
+    return <Loading />
+  }
   return (
     <SafeAreaView>
       <ScrollView >
