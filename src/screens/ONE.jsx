@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ScrollView, SafeAreaView, FlatList, View, StyleSheet } from 'react-native';
 import Text from '../components/Text';
+import Loading from '../components/Loading';
 import theme from '../theme';
 import nasaService from '../services/nasa';
 
@@ -47,6 +48,10 @@ const ONE = () => {
   const avgDiameter = (todaysNeows.map(elem => elem.estimated_diameter.feet.estimated_diameter_min).reduce((a, b) => a + b, 0)) / todaysNeows.length
   const avgVelocity = (todaysNeows.map(elem => Number(elem.close_approach_data[0].relative_velocity.miles_per_hour)).reduce((a, b) => a + b, 0)) / todaysNeows.length
   const avgMissDistance = (todaysNeows.map(elem => Number(elem.close_approach_data[0].miss_distance.miles)).reduce((a, b) => a + b, 0)) / todaysNeows.length
+
+  if (todaysNeows.length === 0) {
+    return <Loading />
+  }
 
   return (
     <SafeAreaView>
