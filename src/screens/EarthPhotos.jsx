@@ -16,7 +16,7 @@ const ItemSeparator = () => <View style={styles.separator} />;
 const EarthPhotos = () => {
   const [ earthPhotos, setEarthPhotos ] = useState([])
   const fetchEarthPhotos = async () => {
-    const response = await nasaService.getEarthPhotos();
+    const response = await nasaService.getResource('earth');
     const json = await response.json();
     setEarthPhotos(json);
   }

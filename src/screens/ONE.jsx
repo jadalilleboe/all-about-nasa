@@ -36,7 +36,7 @@ const ONE = () => {
   const formattedDate = `${date.getFullYear().toString()}-0${(date.getMonth() + 1).toString()}-${date.getDate().toString()}`;
 
   const fetchONES = async () => {
-    const response = await nasaService.getONES();
+    const response = await nasaService.getResource('neows');
     const json = await response.json();
     setNeows(json);
     setTodaysNeows(json.near_earth_objects[formattedDate])

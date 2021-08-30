@@ -15,7 +15,7 @@ const ItemSeparator = () => <View style={styles.separator} />;
 const MarsPhotos = () => {
   const [ marsPhotos, setMarsPhotos ] = useState([])
   const fetchMarsPhotos = async () => {
-    const response = await nasaService.getMarsPhotos();
+    const response = await nasaService.getResource('mars');
     const json = await response.json();
     setMarsPhotos(json);
   }

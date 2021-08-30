@@ -7,7 +7,7 @@ import Loading from '../components/Loading';
 const DailyPicture = () => {
   const [ apod, setApod ] = useState(null);
   const fetchApod = async () => {
-    const response = await nasaService.getAPOD()
+    const response = await nasaService.getResource('apod')
     const json = await response.json();
     setApod(json);
   };
