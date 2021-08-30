@@ -5,9 +5,4 @@ const getResource = async (resource) => {
   return response
 }
 
-const getDonki = async () => {
-  const response = await fetch(`${baseUrl}/donki`)
-  return response
-}
-
 export default { getResource }
