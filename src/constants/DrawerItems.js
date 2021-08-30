@@ -15,7 +15,7 @@ export default [
       iconName:'planet'
   },
   {
-      name:'Photos From Earth',
+      name:'Photos of Earth',
       iconType:'Ionicons',
       iconName:'earth'
   },

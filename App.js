@@ -73,7 +73,7 @@ const App = () => {
               drawer.name==='APOD'? APOD 
                 : drawer.name==='Objects Near Earth' ? ONE
                   : drawer.name==='Photos From Mars' ? MarsPhotos
-                    : drawer.name==='Photos From Earth' ? EarthPhotos 
+                    : drawer.name==='Photos of Earth' ? EarthPhotos 
                       : drawer.name==='DONKI' ? DONKI : null
             }
           />)
