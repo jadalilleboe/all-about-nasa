@@ -63,6 +63,7 @@ const ONE = () => {
           data={todaysNeows}
           ItemSeparatorComponent={ItemSeparator}
           renderItem={({ item }) => (<Object key={item.id} name={item.name} diameter={item.estimated_diameter} hazardous={item.is_potentially_hazardous_asteroid} data={item.close_approach_data}/>)}
+          keyExtractor={item => item.id}
         />
         <Text>Average diameter: {Number(avgDiameter).toLocaleString()} feet</Text>
         <Text>Average velocity: {Number(avgVelocity).toLocaleString()} miles per hour</Text>

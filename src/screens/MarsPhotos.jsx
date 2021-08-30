@@ -42,6 +42,7 @@ const MarsPhotos = () => {
           </View>
         )
       }}
+      keyExtractor={item => item.id.toString()}
     />
     </>
   );
