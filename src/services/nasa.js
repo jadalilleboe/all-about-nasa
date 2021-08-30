@@ -15,4 +15,9 @@ const getMarsPhotos = async () => {
   return response
 }
 
-export default { getAPOD, getONES, getMarsPhotos }
+const getEarthPhotos = async () => {
+  const response = await fetch(`${baseUrl}/earth`)
+  return response
+}
+
+export default { getAPOD, getONES, getMarsPhotos, getEarthPhotos }
