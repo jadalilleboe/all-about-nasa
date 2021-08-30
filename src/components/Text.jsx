@@ -38,10 +38,13 @@ const styles = StyleSheet.create({
   },
   centered: {
     textAlign: 'center'
+  },
+  underline: {
+    textDecorationLine: 'underline'
   }
 });
 
-const Text = ({ color, fontSize, fontWeight, style, padding, align, backgroundColor, ...props }) => {
+const Text = ({ color, fontSize, fontWeight, style, padding, align, textDecoration, backgroundColor, ...props }) => {
   const textStyle = [
     styles.text,
     color === 'textSecondary' && styles.colorTextSecondary,
@@ -54,7 +57,8 @@ const Text = ({ color, fontSize, fontWeight, style, padding, align, backgroundCo
     style,
     backgroundColor === 'primary' && styles.backgroundColorPrimary,
     padding === 'paddingAround' && styles.paddingAround,
-    align === 'center' && styles.centered
+    align === 'center' && styles.centered,
+    textDecoration === 'underline' && styles.underline
   ];
 
   return <NativeText style={textStyle} {...props} />;
