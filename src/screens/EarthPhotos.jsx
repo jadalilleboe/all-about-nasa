@@ -41,7 +41,8 @@ const EarthPhotos = () => {
           <Image style={{width: (Dimensions.get('window').width - 20), height: 300}} source={{uri: item}} />
           </View>
         )
-      }}/>
+      }}
+      keyExtractor={item => item}/>
     </>
   );
 }

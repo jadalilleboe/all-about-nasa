@@ -23,5 +23,15 @@ export default [
     name:'DONKI',
     iconType:'AntDesign',
     iconName:'exclamationcircleo'
+  },
+  {
+    name:'NASA Image Search',
+    iconType:'AntDesign',
+    iconName:'search1'
+  },
+  {
+    name: 'NASA Tech Projects',
+    iconType:'MaterialIcons',
+    iconName: 'science'
   }
 ]

@@ -7,11 +7,13 @@ import EarthPhotos from './src/screens/EarthPhotos';
 import MarsPhotos from './src/screens/MarsPhotos';
 import ONE from './src/screens/ONE';
 import DONKI from './src/screens/DONKI';
+import ImageSearch from './src/screens/ImageSearch';
+import TechProjects from './src/screens/TechProjects';
 import theme from './src/theme';
 import DrawerItems from './src/constants/DrawerItems';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
-import { FontAwesome5 } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 const Drawer = createDrawerNavigator();
@@ -63,18 +65,25 @@ const App = () => {
               size={24}
               color={focused ? "#e91e63" : "black"}
             /> :
+            drawer.iconType==='Ionicons' ?
               <Ionicons 
                 name={drawer.iconName}
                 size={24} 
                 color={focused ? "#e91e63" : "black"} 
-              />
+              /> :
+              <MaterialIcons
+                name={drawer.iconName}
+                size={24}
+                color={focused ? "#e91e63" : "black"} />
            }} 
             component={
               drawer.name==='APOD'? APOD 
                 : drawer.name==='Objects Near Earth' ? ONE
                   : drawer.name==='Photos From Mars' ? MarsPhotos
                     : drawer.name==='Photos of Earth' ? EarthPhotos 
-                      : drawer.name==='DONKI' ? DONKI : null
+                      : drawer.name==='DONKI' ? DONKI 
+                        : drawer.name==='NASA Image Search' ? ImageSearch
+                          : TechProjects
             }
           />)
         }
