@@ -24,7 +24,6 @@ const DONKI = () => {
   useEffect(() => {
     fetchDONKI();
   }, [])
-  console.log(notifications)
   return (
     <SafeAreaView>
       <ScrollView>

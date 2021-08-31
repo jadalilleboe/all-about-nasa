@@ -23,7 +23,6 @@ const EarthPhotos = () => {
   useEffect(() => {
     fetchEarthPhotos();
   }, [])
-  console.log(earthPhotos)
   
   if (earthPhotos.length === 0) {
     return <Loading />
@@ -31,7 +30,7 @@ const EarthPhotos = () => {
   return (
     <>
     <Text fontSize='heading' padding='paddingAround' align='center'>Recent Photos From NASA's EPIC camera onboard the NOAA DSCOVR spacecraft</Text>
-    <Text style={{ paddingTop: 0}} padding='paddingAround' align='center'>Photos from yesterday</Text>
+    <Text style={{ paddingTop: 0}} padding='paddingAround' align='center'>Photos from 2 days ago</Text>
     <FlatList 
       data={earthPhotos}
       ItemSeparatorComponent={ItemSeparator}
