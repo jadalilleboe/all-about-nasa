@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import Text from '../components/Text';
 import theme from '../theme';
+import nasaService from '../services/nasa';
 
 const styles = StyleSheet.create({
   input: {
@@ -17,7 +18,13 @@ const styles = StyleSheet.create({
 
 const ImageSearch = () => {
   const { control, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+  const [ photos, setPhotos ] = useState([]);
+
+  const onSubmit = async data => {
+    const response = await nasaService.imageSearch(data)
+    const json = await response.json();
+    setPhotos(json);
+  };
   return (
     <View>
       <Controller
@@ -37,7 +44,7 @@ const ImageSearch = () => {
         defaultValue=""
       />
       {errors.searchValue && <Text padding='paddingAround' style={{color: theme.colors.important}}>Please search for something.</Text>}
-      <Button title="Search" onPress={handleSubmit(onSubmit)} />
+      <View style={{margin: 10}}><Button title="Search" onPress={handleSubmit(onSubmit)}/></View>
     </View>
   )
 }
