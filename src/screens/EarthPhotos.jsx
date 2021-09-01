@@ -3,7 +3,7 @@ import { View, FlatList, StyleSheet, Image, Dimensions } from 'react-native';
 import Text from '../components/Text';
 import Loading from '../components/Loading';
 import nasaService from '../services/nasa';
-// import moment from 'moment';
+import moment from 'moment';
 
 const styles = StyleSheet.create({
   separator: {
@@ -30,7 +30,7 @@ const EarthPhotos = () => {
   return (
     <>
     <Text fontSize='heading' padding='paddingAround' align='center'>Recent Photos From NASA's EPIC camera onboard the NOAA DSCOVR spacecraft</Text>
-    <Text style={{ paddingTop: 0}} padding='paddingAround' align='center'>Photos from 2 days ago</Text>
+    <Text style={{ paddingTop: 0}} padding='paddingAround' align='center'>Photos from {moment().subtract(3, 'days').format('MMMM Do, YYYY')}</Text>
     <FlatList 
       data={earthPhotos}
       ItemSeparatorComponent={ItemSeparator}
