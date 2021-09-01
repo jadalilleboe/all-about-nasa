@@ -3,6 +3,7 @@ import { ScrollView, Image, Dimensions, SafeAreaView, View } from 'react-native'
 import Text from '../components/Text';
 import nasaService from '../services/nasa';
 import Loading from '../components/Loading';
+import moment from 'moment';
 
 const DailyPicture = () => {
   const [ apod, setApod ] = useState(null);
@@ -21,7 +22,7 @@ const DailyPicture = () => {
     <SafeAreaView>
       <ScrollView >
         <Text fontSize='heading' align='center' padding='paddingAround'>Welcome to All About NASA!</Text>
-        <Text align='center' padding='paddingAround'>{apod.date} Astronomy Picture of The Day</Text>
+        <Text align='center' padding='paddingAround'>{moment().format('MMMM Do, YYYY')} Astronomy Picture of The Day</Text>
         <Text align='center' padding='paddingAround' fontWeight='bold'>{apod.title}</Text>
         <View style={{margin: 10}}>
         <Image style={{width: (Dimensions.get('window').width - 20), height: 300}} source={{uri: apod.hdurl}}/>

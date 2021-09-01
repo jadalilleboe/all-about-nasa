@@ -4,6 +4,7 @@ import Text from '../components/Text';
 import Loading from '../components/Loading';
 import theme from '../theme';
 import nasaService from '../services/nasa';
+import moment from 'moment';
 
 const styles = StyleSheet.create({
   separator: {
@@ -45,32 +46,34 @@ const ONE = () => {
     fetchONES();
   }, []);
 
-  const avgDiameter = (todaysNeows.map(elem => elem.estimated_diameter.feet.estimated_diameter_min).reduce((a, b) => a + b, 0)) / todaysNeows.length
-  const avgVelocity = (todaysNeows.map(elem => Number(elem.close_approach_data[0].relative_velocity.miles_per_hour)).reduce((a, b) => a + b, 0)) / todaysNeows.length
-  const avgMissDistance = (todaysNeows.map(elem => Number(elem.close_approach_data[0].miss_distance.miles)).reduce((a, b) => a + b, 0)) / todaysNeows.length
-
+  
   if (todaysNeows.length === 0) {
     return <Loading />
+  } else {
+    const avgDiameter = (todaysNeows.map(elem => elem.estimated_diameter.feet.estimated_diameter_min).reduce((a, b) => a + b, 0)) / todaysNeows.length
+    const avgVelocity = (todaysNeows.map(elem => Number(elem.close_approach_data[0].relative_velocity.miles_per_hour)).reduce((a, b) => a + b, 0)) / todaysNeows.length
+    const avgMissDistance = (todaysNeows.map(elem => Number(elem.close_approach_data[0].miss_distance.miles)).reduce((a, b) => a + b, 0)) / todaysNeows.length
+    
+    return (
+      <SafeAreaView>
+        <ScrollView>
+          <Text fontSize='heading' padding='paddingAround' align='center'>There are currently</Text>
+          <Text fontSize='big' fontWeight='bold' padding='paddingAround' align='center' style={{color: theme.colors.important}}>{todaysNeows.length}</Text>
+          <Text fontSize='heading' padding='paddingAround' align='center'>Asteroids and Objects near Earth.</Text>
+          <FlatList
+            data={todaysNeows}
+            ItemSeparatorComponent={ItemSeparator}
+            renderItem={({ item }) => (<Object key={item.id} name={item.name} diameter={item.estimated_diameter} hazardous={item.is_potentially_hazardous_asteroid} data={item.close_approach_data}/>)}
+            keyExtractor={item => item.id}
+          />
+          <Text>Average diameter: {Number(avgDiameter).toLocaleString()} feet</Text>
+          <Text>Average velocity: {Number(avgVelocity).toLocaleString()} miles per hour</Text>
+          <Text>Average miss distance: {Number(avgMissDistance).toLocaleString()} miles</Text>
+        </ScrollView>
+      </SafeAreaView>
+    );
   }
 
-  return (
-    <SafeAreaView>
-      <ScrollView>
-        <Text fontSize='heading' padding='paddingAround' align='center'>There are currently</Text>
-        <Text fontSize='big' fontWeight='bold' padding='paddingAround' align='center' style={{color: theme.colors.important}}>{todaysNeows.length}</Text>
-        <Text fontSize='heading' padding='paddingAround' align='center'>Asteroids and Objects near Earth.</Text>
-        <FlatList
-          data={todaysNeows}
-          ItemSeparatorComponent={ItemSeparator}
-          renderItem={({ item }) => (<Object key={item.id} name={item.name} diameter={item.estimated_diameter} hazardous={item.is_potentially_hazardous_asteroid} data={item.close_approach_data}/>)}
-          keyExtractor={item => item.id}
-        />
-        <Text>Average diameter: {Number(avgDiameter).toLocaleString()} feet</Text>
-        <Text>Average velocity: {Number(avgVelocity).toLocaleString()} miles per hour</Text>
-        <Text>Average miss distance: {Number(avgMissDistance).toLocaleString()} miles</Text>
-      </ScrollView>
-    </SafeAreaView>
-  );
 }
 
 export default ONE;
