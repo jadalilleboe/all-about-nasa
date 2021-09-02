@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet } from "react-native";
+import { View, TextInput, Button, StyleSheet, Image, Dimensions, FlatList, TouchableOpacity, Alert } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import Text from '../components/Text';
 import theme from '../theme';
@@ -13,8 +13,13 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 10,
     fontSize: theme.fontSizes.body
+  },
+  separator: {
+    height: 30
   }
-})
+});
+
+const ItemSeparator = () => <View style={styles.separator} />;
 
 const ImageSearch = () => {
   const { control, handleSubmit, formState: { errors } } = useForm();
@@ -25,6 +30,7 @@ const ImageSearch = () => {
     const json = await response.json();
     setPhotos(json);
   };
+
   return (
     <View>
       <Controller
@@ -45,6 +51,21 @@ const ImageSearch = () => {
       />
       {errors.searchValue && <Text padding='paddingAround' style={{color: theme.colors.important}}>Please search for something.</Text>}
       <View style={{margin: 10}}><Button title="Search" onPress={handleSubmit(onSubmit)}/></View>
+      {(photos.length === 0) ? <Text>Hi</Text> : 
+        <FlatList 
+        data={photos}
+        ItemSeparatorComponent={ItemSeparator}
+        renderItem={({ item }) => {
+          return (
+          <View style={{borderStyle: 'dashed', borderWidth: 1}}>
+            <TouchableOpacity onPress={() => Alert.alert(item.data[0].title, item.data[0].description)}>
+            <Image style={{width: (Dimensions.get('window').width - 20), height: 300}} source={{uri: item.links[0].href}}/></TouchableOpacity>
+          </View>
+          );
+        }}
+        keyExtractor={item => item.data[0].nasa_id}
+        />
+      }
     </View>
   )
 }
