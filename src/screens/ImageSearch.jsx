@@ -51,7 +51,8 @@ const ImageSearch = () => {
       />
       {errors.searchValue && <Text padding='paddingAround' style={{color: theme.colors.important}}>Please search for something.</Text>}
       <View style={{margin: 10}}><Button title="Search" onPress={handleSubmit(onSubmit)}/></View>
-      {(photos.length === 0) ? <Text>Hi</Text> : 
+      {(photos.length === 0) ? null : 
+        <><Text align='center' padding='paddingAround'>Press an image for more information!</Text>
         <FlatList 
         data={photos}
         ItemSeparatorComponent={ItemSeparator}
@@ -64,7 +65,7 @@ const ImageSearch = () => {
           );
         }}
         keyExtractor={item => item.data[0].nasa_id}
-        />
+        /></>
       }
     </View>
   )
