@@ -33,8 +33,7 @@ const ONE = () => {
   const [ neows, setNeows ] = useState([]);
   const [ todaysNeows, setTodaysNeows ] = useState([]);
 
-  const date = new Date();
-  const formattedDate = `${date.getFullYear().toString()}-0${(date.getMonth() + 1).toString()}-${date.getDate().toString()}`;
+  const formattedDate = moment().format('YYYY-MM-DD')
 
   const fetchONES = async () => {
     const response = await nasaService.getResource('neows');
