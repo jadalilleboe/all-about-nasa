@@ -58,7 +58,7 @@ const ImageSearch = () => {
         ItemSeparatorComponent={ItemSeparator}
         renderItem={({ item }) => {
           return (
-          <View style={{borderStyle: 'dashed', borderWidth: 1}}>
+          <View style={{borderStyle: 'solid', borderWidth: 1, flex: 1, alignItems: 'center'}}>
             <TouchableOpacity onPress={() => Alert.alert(item.data[0].title, item.data[0].description)}>
             <Image style={{width: (Dimensions.get('window').width - 20), height: 300}} source={{uri: item.links[0].href}}/></TouchableOpacity>
           </View>
