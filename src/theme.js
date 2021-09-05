@@ -4,7 +4,8 @@ const theme = {
     textPrimary: 'black',
     textSecondary: '#565656',
     onDarkBackground: 'white',
-    important: '#e91e63'
+    important: '#e91e63',
+    link: '#007AFF'
   },
   fontSizes: {
     body: 18,
