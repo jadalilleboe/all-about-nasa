@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ScrollView, Image, Dimensions, SafeAreaView, View } from 'react-native';
 import Text from '../components/Text';
+import YoutubePlayer from 'react-native-youtube-iframe';
 import nasaService from '../services/nasa';
 import Loading from '../components/Loading';
 import moment from 'moment';
@@ -25,7 +26,13 @@ const DailyPicture = () => {
         <Text align='center' padding='paddingAround'>{moment().format('MMMM Do, YYYY')} Astronomy Picture of The Day</Text>
         <Text align='center' padding='paddingAround' fontWeight='bold'>{apod.title}</Text>
         <View style={{margin: 10}}>
-        <Image style={{width: (Dimensions.get('window').width - 20), height: 300, borderRadius: 5}} source={{uri: apod.hdurl}}/>
+        {
+          (apod.url.includes('youtube')) 
+            ? <YoutubePlayer height={300}
+            play={true}
+            videoId={apod.url.slice(30, 41)}/> 
+            : <Image style={{width: (Dimensions.get('window').width - 20), height: 300, borderRadius: 5}} source={{uri: apod.hdurl}}/>
+        }
         </View>
         <View style={{borderWidth: 1, borderStyle: 'solid', margin: 10, borderRadius: 5}}>
         <Text style={{padding: 20}}>{apod.explanation}</Text>
