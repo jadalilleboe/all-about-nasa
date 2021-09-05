@@ -2,12 +2,13 @@ import React, {useState, useEffect } from 'react';
 import { ScrollView, SafeAreaView, Linking, TouchableOpacity, View } from 'react-native';
 import Text from '../components/Text';
 import nasaService from '../services/nasa';
+import moment from 'moment';
 
 const Notification = ({ notification }) => {
   const messageBody = notification.messageBody.slice((notification.messageBody.search('## Summary') + 12), (notification.messageBody.search('## Notes')))
   return (
-    <View style={{borderWidth: 1, borderStyle: 'solid', margin: 10}}>
-      <Text padding='paddingAround'>Issued on {notification.messageIssueTime}</Text>
+    <View style={{borderWidth: 1, borderStyle: 'solid', margin: 10, borderRadius: 5}}>
+      <Text padding='paddingAround'>Issued on {moment(notification.messageIssueTime, 'YYYY-MM-DDThh:mmZ').format('MMMM Do, YYYY h:mma')}</Text>
       <TouchableOpacity onPress={() =>Linking.openURL(notification.messageURL)}><Text padding='paddingAround' style={{backgroundColor: '#DDDDDD'}}>See full report</Text></TouchableOpacity>
       <Text style={{paddingTop: 0}} padding='paddingAround'>{messageBody}</Text>
     </View>
