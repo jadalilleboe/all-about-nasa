@@ -27,9 +27,9 @@ const DONKI = () => {
   return (
     <SafeAreaView>
       <ScrollView>
-        <Text fontSize='heading' align='center' padding='paddingAround' textDecoration='underline'>What is DONKI?</Text>
-        <Text style={{ paddingTop: 0}} padding='paddingAround' fontSize='subheading'>DONKI stands for the Space Weather Database Of Notifications, Knowledge, Information. It provides daily interpretations of space weather observations, analysis, models, forecasts, and notifications provided by the Space Weather Research Center.</Text>
-        <Text textDecoration='underline' align='center'>Recent Space Weather Notifications</Text>
+        <Text fontSize='heading' align='center' padding='paddingAround'>What is DONKI?</Text>
+        <Text style={{ paddingTop: 0}} padding='paddingAround' fontSize='body'>DONKI stands for the Space Weather Database Of Notifications, Knowledge, Information. It provides daily interpretations of space weather observations, analysis, models, forecasts, and notifications provided by the Space Weather Research Center.</Text>
+        <Text align='center' fontSize='subheading'>Recent Space Weather Notifications</Text>
         {notifications.map(item => 
           <Notification key={item.messageID} notification={item}/>
         )}

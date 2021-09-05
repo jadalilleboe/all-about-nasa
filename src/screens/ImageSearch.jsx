@@ -24,11 +24,13 @@ const ItemSeparator = () => <View style={styles.separator} />;
 const ImageSearch = () => {
   const { control, handleSubmit, formState: { errors } } = useForm();
   const [ photos, setPhotos ] = useState([]);
+  const [ pressed, setPressed ] = useState(false)
 
   const onSubmit = async data => {
     const response = await nasaService.imageSearch(data)
     const json = await response.json();
     setPhotos(json);
+    setPressed(true)
   };
 
   return (
@@ -51,7 +53,7 @@ const ImageSearch = () => {
       />
       {errors.searchValue && <Text padding='paddingAround' style={{color: theme.colors.important}}>Please search for something.</Text>}
       <View style={{margin: 10}}><Button title="Search" onPress={handleSubmit(onSubmit)}/></View>
-      {(photos.length === 0) ? <Text padding='paddingAround'>No results!</Text> : 
+      {(photos.length === 0 && pressed) ? <Text padding='paddingAround'>No results!</Text> : (photos.length !== 0 && pressed) ?
         <><Text align='center' padding='paddingAround'>Press an image for more information!</Text>
         <FlatList 
         data={photos}
@@ -65,7 +67,7 @@ const ImageSearch = () => {
           );
         }}
         keyExtractor={item => item.data[0].nasa_id}
-        /></>
+        /></> : null
       }
     </View>
   )

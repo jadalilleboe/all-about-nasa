@@ -37,7 +37,7 @@ const EarthPhotos = () => {
       renderItem={({ item }) => {
         return (
           <View style={{flex: 1, alignItems: 'center'}}>
-          <Image style={{width: (Dimensions.get('window').width - 20), height: 300}} source={{uri: item}} />
+          <Image style={{width: (Dimensions.get('window').width - 20), height: 300, borderRadius: 5}} source={{uri: item}} />
           </View>
         )
       }}
