@@ -25,9 +25,9 @@ const DailyPicture = () => {
         <Text align='center' padding='paddingAround'>{moment().format('MMMM Do, YYYY')} Astronomy Picture of The Day</Text>
         <Text align='center' padding='paddingAround' fontWeight='bold'>{apod.title}</Text>
         <View style={{margin: 10}}>
-        <Image style={{width: (Dimensions.get('window').width - 20), height: 300}} source={{uri: apod.hdurl}}/>
+        <Image style={{width: (Dimensions.get('window').width - 20), height: 300, borderRadius: 5}} source={{uri: apod.hdurl}}/>
         </View>
-        <View style={{borderWidth: 1, borderStyle: 'solid', margin: 10}}>
+        <View style={{borderWidth: 1, borderStyle: 'solid', margin: 10, borderRadius: 5}}>
         <Text style={{padding: 20}}>{apod.explanation}</Text>
         </View>
       </ScrollView>

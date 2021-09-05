@@ -78,7 +78,7 @@ const ONE = () => {
     return (
       <SafeAreaView>
         <ScrollView>
-          <Button title={view === 'daily' ? 'Switch to weekly view' : 'Switch to daily view'}/>
+          <Button title={view === 'daily' ? 'Switch to weekly view' : 'Switch to daily view'} onPress={() => setView(view === 'daily' ? 'weekly' : 'daily')}/>
           <Text fontSize='heading' padding='paddingAround' align='center'>There are currently</Text>
           <Text fontSize='big' fontWeight='bold' padding='paddingAround' align='center' style={{color: theme.colors.important}}>{view === 'daily' ? todaysNeows.length : neows.element_count}</Text>
           <Text fontSize='heading' padding='paddingAround' align='center'>Asteroids and Objects near Earth.</Text>

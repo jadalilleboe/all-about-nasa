@@ -51,7 +51,7 @@ const ImageSearch = () => {
       />
       {errors.searchValue && <Text padding='paddingAround' style={{color: theme.colors.important}}>Please search for something.</Text>}
       <View style={{margin: 10}}><Button title="Search" onPress={handleSubmit(onSubmit)}/></View>
-      {(photos.length === 0) ? null : 
+      {(photos.length === 0) ? <Text padding='paddingAround'>No results!</Text> : 
         <><Text align='center' padding='paddingAround'>Press an image for more information!</Text>
         <FlatList 
         data={photos}
