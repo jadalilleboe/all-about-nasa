@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet, Image, Dimensions, FlatList, TouchableOpacity, Alert } from "react-native";
 import { useForm, Controller } from "react-hook-form";
-import Text from '../components/Text';
+import Text from '../components/Text.jsx';
 import theme from '../theme';
 import nasaService from '../services/nasa';
 

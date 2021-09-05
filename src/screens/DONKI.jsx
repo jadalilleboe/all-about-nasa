@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import { ScrollView, SafeAreaView, Linking, TouchableOpacity, View } from 'react-native';
-import Text from '../components/Text';
+import Text from '../components/Text,jsx';
 import nasaService from '../services/nasa';
 import moment from 'moment';
 

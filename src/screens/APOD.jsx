@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { ScrollView, Image, Dimensions, SafeAreaView, View } from 'react-native';
-import Text from '../components/Text';
+import Text from '../components/Text.jsx';
 import YoutubePlayer from 'react-native-youtube-iframe';
 import nasaService from '../services/nasa';
-import Loading from '../components/Loading';
+import Loading from '../components/Loading.jsx';
 import moment from 'moment';
 
 const DailyPicture = () => {

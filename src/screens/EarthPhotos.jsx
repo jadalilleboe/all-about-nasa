@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, FlatList, StyleSheet, Image, Dimensions } from 'react-native';
-import Text from '../components/Text';
-import Loading from '../components/Loading';
+import Text from '../components/Text.jsx';
+import Loading from '../components/Loading.jsx';
 import nasaService from '../services/nasa';
 import moment from 'moment';
 

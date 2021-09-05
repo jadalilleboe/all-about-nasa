@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ScrollView, SafeAreaView, View } from 'react-native';
 import { List } from 'react-native-paper';
-import Text from '../components/Text';
-import Loading from '../components/Loading'
+import Text from '../components/Text.jsx';
+import Loading from '../components/Loading.jsx'
 import nasaService from '../services/nasa';
 import moment from 'moment';
 
