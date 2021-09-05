@@ -10,7 +10,7 @@ import DONKI from './src/screens/DONKI.jsx';
 import ImageSearch from './src/screens/ImageSearch.jsx';
 import TechProjects from './src/screens/TechProjects.jsx';
 import theme from './src/theme';
-import DrawerItems from './src/constants/DrawerItems.jsx';
+import DrawerItems from './src/constants/DrawerItems';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
