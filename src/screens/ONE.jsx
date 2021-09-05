@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ScrollView, SafeAreaView, FlatList, View, StyleSheet, Linking, Button } from 'react-native';
+import { List } from 'react-native-paper';
 import Text from '../components/Text';
 import Loading from '../components/Loading';
 import theme from '../theme';
@@ -51,21 +52,23 @@ const NEObject = props => {
 
 const WeeklyView = ({ neows }) => {
   let dates = Object.keys(neows)
+  dates.forEach((date) => console.log(moment(date).format('MMMM Do, YYYY')))
   const formattedDates = dates.map(date => new Date(date))
   dates = formattedDates.sort((a, b) => a - b)
   return (
     <View>
-      <Text align='center' padding='paddingAround' fontSize='subheading'>Week of {moment(dates[0]).format('MMM Do, YYYY')} - {moment(dates[(dates.length) - 1]).format('MMM Do, YYYY')}</Text>
+      <List.Section>
       {dates.map(date => 
-        <View>
-          <Text align='center' fontWeight='bold' padding='paddingAround' fontSize='subheading'>{moment(date).format('MMMM Do, YYYY')}</Text>
-          <FlatList
-            data={neows[moment(date).format('YYYY-MM-DD')]}
+          <List.Accordion key={date} title={moment(date).add(1, 'day').format('MMMM Do, YYYY')}>
+            <FlatList
+            data={neows[moment(date).add(1, 'day').format('YYYY-MM-DD')]}
             ItemSeparatorComponent={ItemSeparator}
             renderItem={({ item }) => (<NEObject key={item.id} name={item.name} diameter={item.estimated_diameter} hazardous={item.is_potentially_hazardous_asteroid} data={item.close_approach_data} url={item.nasa_jpl_url} />)}
             keyExtractor={item => item.id}
           />
-        </View>)}
+          </List.Accordion>
+          )}
+        </List.Section>
     </View>
   )
 }
@@ -145,6 +148,7 @@ const ONE = () => {
             <Text fontSize='subheading' padding='paddingAround' fontWeight='bold'>Average miss distance</Text> 
             <Text style={{paddingBottom: 20}}>{Number(avgMissDistance).toLocaleString()} miles</Text>
           </View>
+          <SafeAreaView>
           {view === 'daily' ? <FlatList
             data={todaysNeows}
             ItemSeparatorComponent={ItemSeparator}
@@ -152,6 +156,7 @@ const ONE = () => {
             keyExtractor={item => item.id}
           /> :
           <WeeklyView neows={neows.near_earth_objects} />}
+          </SafeAreaView>
         </ScrollView>
       </SafeAreaView>
     );
