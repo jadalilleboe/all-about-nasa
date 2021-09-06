@@ -29,11 +29,12 @@ const TechProjects = () => {
           //   <Text>{project.description}</Text>
           // </View>
           <List.Accordion key={project.projectId} title={project.title} titleNumberOfLines={3}>
-            <Text>Start Date: {moment(project.startMonth, 'M').format('MMMM')} {project.startYear}</Text>
-            <Text>End Date: {moment(project.endMonth, 'M').format('MMMM')} {project.endYear}</Text>
-            <Text>Status: {project.statusDescription}</Text>
-            <Text fontWeight='bold'>Principal Investigator</Text>
-            <Text>{project.principalInvestigators[0].firstName} {project.principalInvestigators[0].lastName}</Text>
+            <Text align='center' fontWeight='bold' padding='paddingAround'>Start Date</Text> 
+            <Text align='center'>{moment(project.startMonth, 'M').format('MMMM')} {project.startYear}</Text>
+            <Text align='center' fontWeight='bold' padding='paddingAround'>End Date</Text>
+            <Text align='center'>{moment(project.endMonth, 'M').format('MMMM')} {project.endYear}</Text>
+            <Text align='center' fontWeight='bold' padding='paddingAround'>Status</Text> 
+            <Text align='center'>{project.statusDescription}</Text>
             <Text fontWeight='bold' align='center' padding='paddingAround'>Description</Text>
             <Text padding='paddingAround'>{project.description}</Text>
           </List.Accordion>
