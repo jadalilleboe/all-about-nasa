@@ -5,6 +5,22 @@ const getResource = async resource => {
   return response
 }
 
+const getNeows = async date => {
+  const response = await fetch(`${baseUrl}/neows`, {
+    method: 'POST',
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    redirect: 'follow',
+    referrerPolicy: 'no-referrer',
+    body: {date: JSON.stringify(date)}
+  })
+  return response
+}
+
 const imageSearch = async data => {
   const response = await fetch(`${baseUrl}/images`, {
     method: 'POST',
@@ -21,4 +37,4 @@ const imageSearch = async data => {
   return response
 }
 
-export default { getResource, imageSearch }
+export default { getResource, getNeows, imageSearch }

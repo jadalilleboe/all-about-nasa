@@ -78,10 +78,10 @@ const ONE = () => {
   const [ todaysNeows, setTodaysNeows ] = useState([]);
   const [ view, setView ] = useState('daily')
 
-  const formattedDate = moment().format('YYYY-MM-DD')
+  const formattedDate = moment().add(1, 'day').format('YYYY-MM-DD')
 
   const fetchONES = async () => {
-    const response = await nasaService.getResource('neows');
+    const response = await nasaService.getNeows(formattedDate);
     const json = await response.json();
     setNeows(json);
     setTodaysNeows(json.near_earth_objects[formattedDate])
